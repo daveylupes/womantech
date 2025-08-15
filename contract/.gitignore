@@ -1,0 +1,25 @@
+# Foundry
+out/
+cache/
+broadcast/
+
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Coverage
+lcov.info
+coverage/
