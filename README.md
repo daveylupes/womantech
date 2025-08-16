@@ -1,180 +1,326 @@
-# WomanTech Connect MVP - BlockDAG Edition
+# WomanTech Connect: Bridging the Gender Gap in SA Tech Through Verifiable Mentorship
 
-> **On-chain mentorship platform for women in tech** - A production-ready, BlockDAG-optimized smart contract system for verifiable mentorship confirmations and reputation tracking.
+> **A decentralized mentorship platform empowering women in South African tech through blockchain-verified professional relationships**
 
-## Project Goal & MVP Scope
+## 💡 The Vision
 
-WomanTech Connect provides a *decentralized foundation for women in tech mentorship by recording mentorship sessions on-chain with verifiable reputation tracking. The MVP focuses on four core features:
+WomanTech Connect is a pioneering decentralized application (dApp) designed to address the critical gender disparity in the South African technology sector. Our vision is to create a transparent, meritocratic, and verifiable professional network that empowers women through structured mentorship, fostering career growth and leadership.
 
-1. User Registration - On-chain registration for mentors and mentees
-2. Mentorship Confirmation - Verifiable session tracking between mentor-mentee pairs
-3. Reputation System - Public reputation counter for mentors based on confirmed sessions
-4. User Discovery - Paginated user discovery for finding mentors and mentees
+## 🌍 The Problem
 
-## Why This Fits BlockDAG Hackathon Judging
+Women are significantly underrepresented in SA STEM roles (23%) and face a substantial gender pay gap (25% less). A key systemic barrier is the lack of equitable access to effective, unbiased mentorship, which is proven to increase promotion rates by 5x and overall success by up to 64%. Existing platforms often rely on opaque, subjective processes, perpetuating bias.
 
-- BlockDAG Innovation: First mentorship platform built specifically for BlockDAG's EVM-compatible architecture
-- Technical Excellence: Production-clean Solidity with comprehensive testing optimized for BlockDAG
-- BlockDAG Integration: Native compatibility with BlockDAG Primordial Testnet (Chain ID: 1043)
-- UI/UX Ready: Events emitted for easy frontend integration on BlockDAG
-- BlockDAG Architecture: Designed to leverage BlockDAG's unique blockchain capabilities
+## ✨ The Solution: Verifiable Mentorship
+
+WomanTech Connect introduces a novel approach using blockchain technology to:
+
+- **Combat Bias**: Mentorship matching based purely on objective, verified professional skills and experience, not personal attributes
+- **Build Trust**: Cryptographically secure, immutable records of mentorship achievements and professional milestones
+- **Foster Reputation**: A quantifiable, on-chain reputation system for mentors, incentivizing high-quality contributions
+
+## 🎯 Target Audience
+
+- **Aspiring & Junior Women in Tech**: Seeking guidance and career acceleration
+- **Experienced Women in Tech**: Ready to mentor and contribute to the community
+- **Tech Companies & Educational Institutions**: Seeking to support diversity and verify skills
+
+## 🚀 Key Features (MVP)
+
+For the hackathon, our MVP demonstrates the core value:
+
+- **User Registration**: Simple onboarding as a 'mentor' or 'mentee'
+- **On-Chain Mentorship Confirmation**: Mentors can cryptographically confirm completed sessions
+- **Verifiable Mentor Reputation**: Mentor profiles display an immutable count of confirmed mentorships
+- **Basic User Discovery**: View registered members and their roles
+- **Diverse Community**: Showcase of diverse mentors and mentees from various backgrounds
+
+## 🔒 Technology Stack
+
+### Frontend
+- **React.js** with TypeScript for type safety
+- **Tailwind CSS** for responsive, modern UI design
+- **Wagmi** for Ethereum wallet integration
+- **Vite** for fast development and building
+- **Framer Motion** for smooth animations
+
+### Backend
+- **FastAPI** (Python) for RESTful API services
+- **SQLAlchemy** for database ORM
+- **SQLite** for development database
+- **Pydantic** for data validation and serialization
+- **Uvicorn** for ASGI server
+
+### Smart Contracts
+- **Solidity** for EVM-compatible smart contracts
+- **Foundry** for development, testing, and deployment
+- **BlockDAG** network support (Chain ID: 1043)
+
+### Development Tools
+- **Python venv** for isolated Python environment
+- **npm** for frontend package management
+- **Git** for version control
+
+## 🏗️ Project Architecture
+
+```
+womantech/
+├── frontend/                 # React.js frontend application
+│   ├── src/
+│   │   ├── components/      # Reusable UI components
+│   │   ├── pages/          # Page components
+│   │   ├── hooks/          # Custom React hooks
+│   │   ├── lib/            # Utility libraries
+│   │   └── assets/         # Static assets
+│   └── package.json
+├── backend_python/          # FastAPI backend
+│   ├── app/
+│   │   ├── api/            # API route handlers
+│   │   ├── models/         # SQLAlchemy database models
+│   │   ├── schemas/        # Pydantic data schemas
+│   │   └── core/           # Core configuration
+│   ├── scripts/            # Database seeding scripts
+│   └── requirements.txt
+├── contract/               # Solidity smart contracts
+│   ├── src/               # Contract source files
+│   ├── test/              # Contract tests
+│   └── foundry.toml
+└── demo.sh                # One-click demo script
+```
 
 ## 🚀 Quick Start
 
 ### Prerequisites
-- [Foundry](https://getfoundry.sh/) installed
-- EVM-compatible wallet with BlockDAG testnet funds
 
-### Setup
+- **Node.js** (v18 or higher)
+- **Python** (v3.8 or higher)
+- **Git**
+- **MetaMask** or compatible Web3 wallet
+- **Foundry** (for smart contract development)
+
+### 1. Clone the Repository
+
 ```bash
-# Clone and setup
 git clone <repository-url>
-cd womantech-connect
-
-# Copy environment file and configure
-cp env.example .env
-# Edit .env with your RPC_URL and PRIVATE_KEY
-
-# Install dependencies and build
-forge install
-forge build
-
-# Run tests
-forge test -vvv
-
-# Generate gas report
-forge test --gas-report
+cd womantech
 ```
 
-### Deploy to BlockDAG
+### 2. Backend Setup
+
 ```bash
-# Deploy to BlockDAG Primordial Testnet
+# Navigate to backend directory
+cd backend_python
+
+# Create and activate virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Start the backend server
+python main.py
+```
+
+The backend will be available at `http://localhost:8000`
+
+### 3. Frontend Setup
+
+```bash
+# Navigate to frontend directory (in a new terminal)
+cd frontend
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+```
+
+The frontend will be available at `http://localhost:5173`
+
+### 4. One-Click Demo
+
+For the easiest setup, use our demo script:
+
+```bash
+# Make the script executable
+chmod +x demo.sh
+
+# Run the demo
+./demo.sh
+```
+
+This will start both backend and frontend services automatically.
+
+## 📱 Demo Walkthrough
+
+### 1. Connect Your Wallet
+- Open the application at `http://localhost:5173`
+- Click "Connect Wallet" and approve the connection in MetaMask
+
+### 2. Register as a User
+- Click "Register" to create your profile
+- Choose your role: **Mentor** or **Mentee**
+- Fill in your details: name, email, bio, skills, experience
+- Submit your registration
+
+### 3. Explore the Community
+- Navigate to the "Community" page
+- Browse the diverse community of mentors and mentees:
+  - **Mentors**: Precious Malope, Rachel Konuto, Jeremy Powell, Donald Trump, Aisha Patel, Marcus Johnson
+  - **Mentees**: Zara Ahmed, Sofia Rodriguez, Kai Chen, Fatima Al-Zahra, Liam O'Connor, Yuki Tanaka
+- Use search and filters to find specific users or skills
+
+### 4. View Your Dashboard
+- See your profile information
+- Check your reputation score
+- View your mentorship history
+
+## 🔧 API Documentation
+
+### User Endpoints
+
+- `GET /api/users/search` - Get all users with pagination
+- `GET /api/users/{wallet_address}` - Get specific user by wallet address
+- `POST /api/users/register` - Register a new user
+
+### Session Endpoints
+
+- `GET /api/sessions` - Get all mentorship sessions
+- `POST /api/sessions` - Create a new session
+- `PUT /api/sessions/{id}/confirm` - Confirm a session
+- `PUT /api/sessions/{id}/complete` - Complete a session
+
+### Payment Endpoints
+
+- `GET /api/payments/user/history` - Get user payment history
+- `GET /api/payments/admin/revenue` - Get admin revenue data
+
+## 🧪 Testing
+
+### Backend Tests
+
+```bash
+cd backend_python
+source venv/bin/activate
+python -m pytest
+```
+
+### Frontend Tests
+
+```bash
+cd frontend
+npm test
+```
+
+### Smart Contract Tests
+
+```bash
+cd contract
+forge test -vvv
+```
+
+## 🌐 Deployment
+
+### Backend Deployment
+
+The FastAPI backend can be deployed to any cloud platform supporting Python:
+
+```bash
+# Example for Heroku
+heroku create womantech-backend
+git push heroku main
+
+# Example for Railway
+railway up
+```
+
+### Frontend Deployment
+
+The React frontend can be deployed to Vercel, Netlify, or similar:
+
+```bash
+# Build for production
+cd frontend
+npm run build
+
+# Deploy to Vercel
+vercel --prod
+```
+
+### Smart Contract Deployment
+
+Deploy to BlockDAG testnet:
+
+```bash
+cd contract
 forge script script/Deploy.s.sol:Deploy --rpc-url $RPC_URL --private-key $PRIVATE_KEY --broadcast
 ```
 
-## 📋 ABI & Addresses
+## 🔒 Security Features
 
-After deployment, find the contract artifacts in:
-- ABI: `out/WomanTech.sol/WomanTech.json`
-- Address: Printed in console and saved to `deployment.txt`
+- **Input Validation**: All API endpoints validate input data
+- **CORS Protection**: Configured for secure cross-origin requests
+- **SQL Injection Prevention**: Using SQLAlchemy ORM
+- **XSS Protection**: React's built-in XSS protection
+- **Wallet Security**: MetaMask integration for secure wallet connections
 
-## 3-Minute Demo Path
+## 🌱 Future Enhancements
 
-### 1. Register Users
-```bash
-# Register a mentor
-cast send $CONTRACT_ADDRESS "register(string,uint8)" "Alice" 1 --private-key $MENTOR_KEY
+### Phase 2 Features
+- **Advanced Matching Algorithm**: AI-powered mentor-mentee matching
+- **Video Integration**: Built-in video calling for sessions
+- **Payment Processing**: Stripe integration for session payments
+- **Mobile App**: React Native mobile application
+- **Analytics Dashboard**: Detailed insights and metrics
 
-# Register a mentee  
-cast send $CONTRACT_ADDRESS "register(string,uint8)" "Bob" 2 --private-key $MENTEE_KEY
-```
+### Phase 3 Features
+- **DAO Governance**: Community-driven platform decisions
+- **Token Economics**: Platform token for incentives
+- **Cross-Chain Integration**: Multi-chain reputation portability
+- **Enterprise Features**: Corporate mentorship programs
 
-### 2. Confirm Mentorship Session
-```bash
-# Mentor confirms a session with mentee
-cast send $CONTRACT_ADDRESS "confirmMentorship(address)" $MENTEE_ADDRESS --private-key $MENTOR_KEY
-```
+## 🤝 Contributing
 
-### 3. View Reputation Increment
-```bash
-# Check mentor's updated reputation
-cast call $CONTRACT_ADDRESS "getUser(address)" $MENTOR_ADDRESS
-```
+We welcome contributions from the community! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
 
-### 4. Discover Users
-```bash
-# Get first 5 users
-cast call $CONTRACT_ADDRESS "getUsers(uint256,uint256)" 0 5
+### Development Setup
 
-# Get total user count
-cast call $CONTRACT_ADDRESS "totalUsers()"
-```
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Make your changes
+4. Add tests for new functionality
+5. Commit your changes: `git commit -m 'Add amazing feature'`
+6. Push to the branch: `git push origin feature/amazing-feature`
+7. Open a Pull Request
 
-## Contract Architecture
+## 📄 License
 
-### Core Functions
-- `register(name, role)` - Register as mentor (1) or mentee (2)
-- `confirmMentorship(mentee)` - Confirm a mentorship session
-- `getUser(address)` - Get user profile and reputation
-- `getUsers(offset, limit)` - Paginated user discovery
-- `totalUsers()` - Get total registered users
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-### Events
-- `UserRegistered(account, role, name)` - Emitted on registration
-- `MentorshipConfirmed(mentor, mentee, reputation, sessionId)` - Emitted on session confirmation
+## 🙏 Acknowledgments
 
-### Data Model
-```solidity
-struct User {
-    address account;
-    string name;
-    Role role;        // 0=Unknown, 1=Mentor, 2=Mentee
-    uint64 reputation;
-    bool registered;
-}
-```
+- **BlockDAG Network** for blockchain infrastructure
+- **FastAPI** team for the excellent web framework
+- **React** team for the frontend framework
+- **Tailwind CSS** for the utility-first CSS framework
+- **Foundry** team for the smart contract development tools
 
-## Testing
+## 📞 Contact
 
-Comprehensive test suite includes:
-- Registration flow validation
-- Mentorship confirmation with reputation tracking
-- Role-based access control
-- Pagination functionality
-- Fuzz testing for edge cases
-- Custom error handling
+- **Project Link**: [https://github.com/your-username/womantech](https://github.com/your-username/womantech)
+- **Issues**: [https://github.com/your-username/womantech/issues](https://github.com/your-username/womantech/issues)
 
-Run tests: `forge test -vvv`
+## 🎯 Impact Metrics
 
-## Gas Optimization
+By creating a trusted, equitable, and verifiable mentorship ecosystem, WomanTech Connect will:
 
-The contract is optimized for hackathon deployment:
-- Custom errors for gas efficiency
-- Minimal storage operations
-- Efficient pagination with bounded loops
-- Optimized struct packing
-
-## Out of Scope (MVP Focus)
-
-To keep the hackathon demo focused, these features are **intentionally excluded**:
-- Venture Capital issuance
-- Token economics
-- DAO governance
-- In-app messaging
-- Automated matching algorithms
-- Complex reputation formulas
-
-## BlockDAG Network Support
-
-**Target Network**: BlockDAG Primordial Testnet (Chain ID: 1043)
-
-Configure via `.env`:
-```
-# BlockDAG Primordial Testnet
-RPC_URL=https://rpc.primordial.bdagscan.com
-CHAIN_ID=1043
-CURRENCY_SYMBOL=BDAG
-
-# Get testnet tokens: https://primordial.bdagscan.com/faucet
-PRIVATE_KEY=0xYOUR_PRIVATE_KEY
-```
-
-## Security Features
-
-- Input validation for all parameters
-- Role-based access control
-- Duplicate session prevention
-- Zero-address protection
-- Bounded pagination to prevent DoS
-
-## Future Enhancements
-
-Post-hackathon roadmap for BlockDAG ecosystem:
-- Multi-session reputation decay
-- Mentor verification badges
-- Cross-chain reputation portability within BlockDAG network
-- Integration with existing mentorship platforms
-- BlockDAG-specific features leveraging DAG architecture
+- **Accelerate Career Growth**: Provide structured pathways for women in tech
+- **Increase Representation**: Contribute to closing the gender gap in the SA tech industry
+- **Build a Stronger Community**: Empower women to support and uplift each other
+- **Set a New Standard**: Pioneer a model for truly meritocratic professional networking
 
 ---
+
+**Made with ❤️ for the South African tech community**
 
